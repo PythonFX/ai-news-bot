@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News Daily - 2026-05-08</title>
+    <title>AI News Daily - 2026-05-09</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -26,6 +26,19 @@
         .stat { text-align: center; }
         .stat-value { font-size: 1.8em; font-weight: 700; color: #667eea; }
         .stat-label { font-size: 0.85em; color: #666; }
+        .date-picker { margin-top: 20px; }
+        .date-picker label { color: #888; margin-right: 8px; }
+        .date-picker select {
+            background: #12121a;
+            color: #e0e0e0;
+            border: 1px solid #2a2a3a;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 1em;
+            cursor: pointer;
+            outline: none;
+        }
+        .date-picker select:hover { border-color: #667eea; }
         .source-group { margin-bottom: 40px; }
         .source-title { font-size: 1.3em; color: #667eea; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #2a2a3a; }
         .source-items { display: flex; flex-direction: column; gap: 16px; }
@@ -74,100 +87,73 @@
             <p class="subtitle">权威 AI/ML 新闻每日汇总</p>
             <div class="stats">
                 <div class="stat">
-                    <div class="stat-value">37</div>
+                    <div class="stat-value">30</div>
                     <div class="stat-label">条新闻</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">3</div>
+                    <div class="stat-value">4</div>
                     <div class="stat-label">个来源</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">2026-05-08</div>
+                    <div class="stat-value">2026-05-09</div>
                     <div class="stat-label">日期</div>
                 </div>
             </div>
+            
+    <div class="date-picker">
+        <label for="date-select">📅 选择日期：</label>
+        <select id="date-select" onchange="window.location.href='/date/' + this.value">
+            <option value="2026-05-09" selected>2026-05-09</option>
+        </select>
+    </div>
+    
         </header>
         <main>
-            <div class="source-group"><h2 class="source-title">🚀 VentureBeat</h2><div class="source-items">
+            <div class="source-group"><h2 class="source-title">📢 NVIDIA Blog</h2><div class="source-items">
         <div class="news-item">
-            <h3 class="news-title"><a href="https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud" target="_blank" rel="noopener">Railway secures $100 million to challenge AWS with AI-native cloud infrastructure</a></h3>
-            <p class="news-summary"><a href="https://railway.com/" target="_blank" rel="noopener">Railway</a>, a San Francisco-based cloud platform that has quietly amassed two million developers without spending a dollar on marketing, announced Thursday that it r</p>
-            <div class="news-meta">📅 Thu, 22 Jan 2026 14:00:00 GMT</div>
+            <h3 class="news-title"><a href="https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/" target="_blank" rel="noopener">OpenAI’s New GPT-5.5 Powers Codex on NVIDIA Infrastructure — and NVIDIA Is Already Putting It to Work</a></h3>
+            <p class="news-summary">AI agents have revolutionized developer workflows, and their next frontier is knowledge work: processing information, solving complex problems, coming up with new ideas and driving innovation.  Codex, OpenAI’s agentic coding application, is enabling this new frontier. It’s now powered by GPT-5.5, Op</p>
+            <div class="news-meta">📅 Thu, 23 Apr 2026 18:57:55 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free" target="_blank" rel="noopener">Claude Code costs up to $200 a month. Goose does the same thing for free.</a></h3>
-            <p class="news-summary">The artificial intelligence coding revolution comes with a catch: it's expensive.<a href="https://claude.com/product/claude-code" target="_blank" rel="noopener">Claude Code</a>, Anthropic's terminal-based AI age</p>
-            <div class="news-meta">📅 Mon, 19 Jan 2026 14:00:00 GMT</div>
+            <h3 class="news-title"><a href="https://blogs.nvidia.com/blog/adobe-ai-agents-nvidia-wpp/" target="_blank" rel="noopener">Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence With NVIDIA and WPP</a></h3>
+            <p class="news-summary">AI agents are transforming how work gets done across all industries, accelerating everything from content creation to decision-making. NVIDIA’s expanded strategic collaborations with Adobe and WPP are bringing agentic AI to the center of enterprise marketing operations across creative production and</p>
+            <div class="news-meta">📅 Mon, 20 Apr 2026 13:00:50 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://venturebeat.com/technology/listen-labs-raises-usd69m-after-viral-billboard-hiring-stunt-to-scale-ai" target="_blank" rel="noopener">Listen Labs raises $69M after viral billboard hiring stunt to scale AI customer interviews</a></h3>
-            <p class="news-summary">Alfred Wahlforss was running out of options. His startup, <a href="https://listenlabs.ai/" target="_blank" rel="noopener">Listen Labs</a>, needed to hire over 100 engineers, but competing against Mark Zuckerberg's</p>
-            <div class="news-meta">📅 Fri, 16 Jan 2026 14:01:00 GMT</div>
+            <h3 class="news-title"><a href="https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/" target="_blank" rel="noopener">NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises</a></h3>
+            <p class="news-summary">Enterprise AI has learned to generate. It has learned to reason. Now companies are asking the next question: How should AI act? Early agent systems have shown what’s possible, moving beyond simple prompts to take on more complex tasks. The next step is bringing those capabilities into enterprise env</p>
+            <div class="news-meta">📅 Tue, 05 May 2026 17:00:40 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and" target="_blank" rel="noopener">Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI</a></h3>
-            <p class="news-summary"><a href="https://www.salesforce.com/" target="_blank" rel="noopener">Salesforce</a> on Tuesday launched an entirely rebuilt version of <a href="https://slack.com/help/articles/202026038-An-introduction-to-Slackbot" target="_blank" rel="noopener">Slackbot</a>,</p>
-            <div class="news-meta">📅 Tue, 13 Jan 2026 13:00:00 GMT</div>
+            <h3 class="news-title"><a href="https://blogs.nvidia.com/blog/what-openclaw-agents-mean-for-every-organization/" target="_blank" rel="noopener">Nemotron Labs: What OpenClaw Agents Mean for Every Organization</a></h3>
+            <p class="news-summary">By early 2026, the open source project OpenClaw had become a phenomenon. In January, its GitHub star count crossed 100,000 as developer interest surged.</p>
+            <div class="news-meta">📅 Thu, 30 Apr 2026 20:00:39 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://venturebeat.com/technology/anthropic-launches-cowork-a-claude-desktop-agent-that-works-in-your-files-no" target="_blank" rel="noopener">Anthropic launches Cowork, a Claude Desktop agent that works in your files â no coding required</a></h3>
-            <p class="news-summary"><a href="https://www.anthropic.com/" target="_blank" rel="noopener">Anthropic</a> released <a href="https://claude.com/blog/cowork-research-preview" target="_blank" rel="noopener">Cowork</a> on Monday, a new AI agent capability that extends the power of its w</p>
-            <div class="news-meta">📅 Mon, 12 Jan 2026 11:30:00 GMT</div>
+            <h3 class="news-title"><a href="https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents/" target="_blank" rel="noopener">NVIDIA Launches Nemotron 3 Nano Omni Model, Unifying Vision, Audio and Language for up to 9x More Efficient AI Agents</a></h3>
+            <p class="news-summary">AI agent systems today juggle separate models for vision, speech and language — losing time and context as they pass data from one model to the other. Unveiled today, NVIDIA Nemotron 3 Nano Omni is an open multimodal model that brings these capabilities together into one system, enabling agents to d</p>
+            <div class="news-meta">📅 Tue, 28 Apr 2026 16:00:28 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in" target="_blank" rel="noopener">Nous Research&#39;s NousCoder-14B is an open-source coding model landing right in the Claude Code moment</a></h3>
-            <p class="news-summary"><a href="https://nousresearch.com/" target="_blank" rel="noopener">Nous Research</a>, the open-source artificial intelligence startup backed by crypto venture firm <a href="https://www.paradigm.xyz/" target="_blank" rel="noopener">Paradigm</a>, released a new</p>
-            <div class="news-meta">📅 Wed, 07 Jan 2026 20:00:00 GMT</div>
+            <h3 class="news-title"><a href="https://blogs.nvidia.com/blog/google-cloud-agentic-physical-ai-factories/" target="_blank" rel="noopener">NVIDIA and Google Cloud Collaborate to Advance Agentic and Physical AI</a></h3>
+            <p class="news-summary">NVIDIA and Google Cloud have collaborated for more than a decade, co‑engineering a full‑stack AI platform that spans every technology layer — from performance‑optimized libraries and frameworks to enterprise‑grade cloud services.  This foundation enables developers, startups and enterprises to push</p>
+            <div class="news-meta">📅 Wed, 22 Apr 2026 12:00:42 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are" target="_blank" rel="noopener">The creator of Claude Code just revealed his workflow, and developers are losing their minds</a></h3>
-            <p class="news-summary">When the creator of the world's most advanced coding agent speaks, Silicon Valley doesn't just listen â it takes notes.For the past week, the engineering community has been disse</p>
-            <div class="news-meta">📅 Mon, 05 Jan 2026 07:45:00 GMT</div>
+            <h3 class="news-title"><a href="https://blogs.nvidia.com/blog/lowest-token-cost-ai-factories/" target="_blank" rel="noopener">Rethinking AI TCO: Why Cost per Token Is the Only Metric That Matters</a></h3>
+            <p class="news-summary">Traditional data centers only stored, retrieved and processed data. In the generative and agentic AI era, these facilities have evolved into AI token factories. With AI inference becoming their primary workload, their primary output is intelligence manufactured in the form of tokens.  This transform</p>
+            <div class="news-meta">📅 Wed, 15 Apr 2026 15:00:26 +0000</div>
         </div></div></div><div class="source-group"><h2 class="source-title">💰 TechCrunch</h2><div class="source-items">
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/the-back-office-problem-that-explains-why-specialists-never-call-you-back/" target="_blank" rel="noopener">Why you can never get your doctor to call you back</a></h3>
-            <p class="news-summary">Like many AI companies automating work that humans currently do, Basata will eventually face a harder question about where the line is between augmenting workers and displacing them. For now, the foun</p>
-            <div class="news-meta">📅 Fri, 08 May 2026 04:42:29 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/ramp-in-talks-to-hit-40b-valuation-6-months-after-reaching-32b/" target="_blank" rel="noopener">Ramp in talks to hit $40B+ valuation, 6 months after reaching $32B</a></h3>
-            <p class="news-summary">The company is reportedly in talks to raise another $750 million at a pre-money valuation of more than $40 billion. It last raised in November at $32 billion.</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 23:11:43 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/openai-launches-new-voice-intelligence-features-in-its-api/" target="_blank" rel="noopener">OpenAI launches new voice intelligence features in its API</a></h3>
-            <p class="news-summary">The new features could be handy for customer service systems, but OpenAI says they have applications that work across a variety of other fields, including education and creator platforms.</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 22:24:50 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/kodiak-ai-raises-100m-at-a-steep-discount-sending-its-stock-tumbling-37/" target="_blank" rel="noopener">Kodiak AI raises $100M at a steep discount, sending its stock tumbling 37%</a></h3>
-            <p class="news-summary">The company made a series of other announcements during earnings, including a new commercial contract, a pilot program in Canada, and a collaboration.</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 21:49:24 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/disney-looking-to-make-a-unified-super-app-report-says/" target="_blank" rel="noopener">Disney looking to make a unified ‘super app,’ report says</a></h3>
-            <p class="news-summary">Disney CEO Josh D'Amaro, who took over for Bob Iger earlier this year, has emphasized his intent to streamline the Disney experience.</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 21:40:10 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/voi-founders-new-ai-startup-pit-has-become-the-latest-rising-star-out-of-stockholm/" target="_blank" rel="noopener">Voi founders’ new AI startup Pit has become the latest rising star out of Stockholm</a></h3>
-            <p class="news-summary">AI startup Pit is led by the co-founders of European scooter giant Voi and backed by a16z, which is leading the startup’s $16 million seed round.</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 21:02:11 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/hackers-deface-school-login-pages-after-claiming-another-instructure-hack/" target="_blank" rel="noopener">Hackers deface school login pages after claiming another Instructure hack</a></h3>
-            <p class="news-summary">The cybercrime group ShinyHunters claimed to have hacked Instructure again, defacing the login pages of several Instructure customer schools with an extortion message.</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 20:59:09 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/gusto-hits-1b-revenue-a-figure-that-brings-it-closer-to-public-markets/" target="_blank" rel="noopener">Gusto hits $1B revenue, a figure that brings it closer to public markets</a></h3>
-            <p class="news-summary">Gusto has shared an impressive milestone on its actual revenue, not an ARR number that estimates future income.</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 20:41:27 +0000</div>
-        </div>
         <div class="news-item">
             <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/openai-introduces-new-trusted-contact-safeguard-for-cases-of-possible-self-harm/" target="_blank" rel="noopener">OpenAI introduces new ‘Trusted Contact’ safeguard for cases of possible self-harm</a></h3>
             <p class="news-summary">The company is expanding its efforts to protect ChatGPT users in cases where conversations may turn to self-harm.</p>
             <div class="news-meta">📅 Thu, 07 May 2026 20:20:20 +0000</div>
+        </div>
+        <div class="news-item">
+            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/elon-musks-lawsuit-is-putting-openais-safety-record-under-the-microscope/" target="_blank" rel="noopener">Elon Musk’s lawsuit is putting OpenAI’s safety record under the microscope</a></h3>
+            <p class="news-summary">Elon Musk's legal effort to dismantle OpenAI may hinge on how its for-profit subsidiary enhances or detracts from the frontier lab's founding mission of ensuring that humanity benefits from artificial general intelligence.</p>
+            <div class="news-meta">📅 Thu, 07 May 2026 19:21:21 +0000</div>
         </div>
         <div class="news-item">
             <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/tesla-model-y-is-first-car-to-meet-new-u-s-driver-assistance-safety-benchmark/" target="_blank" rel="noopener">Tesla Model Y is first car to meet new US driver assistance safety benchmark</a></h3>
@@ -175,104 +161,104 @@
             <div class="news-meta">📅 Thu, 07 May 2026 20:10:48 +0000</div>
         </div>
         <div class="news-item">
+            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/08/lime-the-uber-backed-micromobility-company-files-for-ipo/" target="_blank" rel="noopener">Lime, the Uber-backed micromobility company, files for IPO</a></h3>
+            <p class="news-summary">After years of hints and preparation, Lime plans to enter the public markets.</p>
+            <div class="news-meta">📅 Fri, 08 May 2026 13:21:34 +0000</div>
+        </div>
+        <div class="news-item">
+            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/08/airbnb-says-ai-now-writes-60-of-its-new-code/" target="_blank" rel="noopener">Airbnb says AI now writes 60% of its new code</a></h3>
+            <p class="news-summary">Airbnb also said its customer support AI bot now handles 40% of issues without escalating to a human agent.</p>
+            <div class="news-meta">📅 Fri, 08 May 2026 12:49:16 +0000</div>
+        </div>
+        <div class="news-item">
+            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/openai-launches-new-voice-intelligence-features-in-its-api/" target="_blank" rel="noopener">OpenAI launches new voice intelligence features in its API</a></h3>
+            <p class="news-summary">The new features could be handy for customer service systems, but OpenAI says they have applications that work across a variety of other fields, including education and creator platforms.</p>
+            <div class="news-meta">📅 Thu, 07 May 2026 22:24:50 +0000</div>
+        </div>
+        <div class="news-item">
             <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/perplexitys-personal-computer-is-now-available-everyone-on-mac/" target="_blank" rel="noopener">Perplexity’s Personal Computer is now available to everyone on Mac</a></h3>
             <p class="news-summary">Perplexity's Personal Computer brings AI agents to your Mac, and is now open to everyone.</p>
             <div class="news-meta">📅 Thu, 07 May 2026 19:57:59 +0000</div>
+        </div></div></div><div class="source-group"><h2 class="source-title">📢 MIT Technology Review</h2><div class="source-items">
+        <div class="news-item">
+            <h3 class="news-title"><a href="https://www.technologyreview.com/2026/05/04/1136826/week-one-of-the-musk-v-altman-trial-what-it-was-like-in-the-room/" target="_blank" rel="noopener">Week one of the Musk v. Altman trial: What it was like in the room</a></h3>
+            <p class="news-summary">This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Two of the most powerful people in AI—Sam Altman and Elon Musk—began their face-off in court in Oakland, California, last week. Musk is suing OpenAI, allegin</p>
+            <div class="news-meta">📅 Mon, 04 May 2026 15:51:27 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/elon-musks-lawsuit-is-putting-openais-safety-record-under-the-microscope/" target="_blank" rel="noopener">Elon Musk’s lawsuit is putting OpenAI’s safety record under the microscope</a></h3>
-            <p class="news-summary">Elon Musk's legal effort to dismantle OpenAI may hinge on how its for-profit subsidiary enhances or detracts from the frontier lab's founding mission of ensuring that humanity benefits from artificial</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 19:21:21 +0000</div>
+            <h3 class="news-title"><a href="https://www.technologyreview.com/2026/05/08/1136988/heres-what-you-need-to-know-about-the-cruise-ship-hantavirus-outbreak/" target="_blank" rel="noopener">Here’s what you need to know about the cruise ship hantavirus outbreak</a></h3>
+            <p class="news-summary">Eight passengers aboard a Dutch-flagged cruise ship have contracted a type of hantavirus, a rare virus transmitted by rats. Three of them have died. As the ship prepares to dock in the Canary Islands, plans are being finalized to let the remaining passengers and crew disembark safely. The virus in q</p>
+            <div class="news-meta">📅 Fri, 08 May 2026 16:19:40 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/bumble-is-getting-rid-of-the-swipe-ceo-says/" target="_blank" rel="noopener">Bumble is getting rid of the swipe, CEO says</a></h3>
-            <p class="news-summary">Based on Whitney Wolfe Herd's past comments about Bumble's new direction, the company is expected to lean into AI -- Bumble is even working on an AI dating assistant called Bee, and the CEO has made m</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 19:06:17 +0000</div>
+            <h3 class="news-title"><a href="https://www.technologyreview.com/2026/05/08/1136985/the-download-ai-malaise-babymaking-ivf-tech/" target="_blank" rel="noopener">The Download: AI malaise and babymaking tech</a></h3>
+            <p class="news-summary">This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. We’ve entered the era of AI malaise AI is spreading everywhere, and it is not going away. But what will it do? What effect will it have on our society</p>
+            <div class="news-meta">📅 Fri, 08 May 2026 12:10:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/tome-another-goodreads-booktracker-rival-shuts-down/" target="_blank" rel="noopener">Tome, another Goodreads book-tracker rival, shuts down</a></h3>
-            <p class="news-summary">Built on the back of the sizable and influential BookTok community -- creators who discuss and review books on TikTok -- the app offered readers a place to chronicle and rate their books, get recommen</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 18:38:58 +0000</div>
+            <h3 class="news-title"><a href="https://www.technologyreview.com/2026/05/08/1136974/heres-how-technology-transformed-babymaking-ivf/" target="_blank" rel="noopener">Here’s how technology transformed babymaking</a></h3>
+            
+            <div class="news-meta">📅 Fri, 08 May 2026 09:00:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://techcrunch.com/2026/05/07/could-lovables-automatic-10-pay-raise-be-the-cure-for-toxic-cultures/" target="_blank" rel="noopener">Could Lovable’s automatic 10% pay raise be the cure for toxic cultures?</a></h3>
-            <p class="news-summary">Stockholm-based vibe-coding platform Lovable is offering employees an automatic 10% raise as a way to sidestep classic corporate politics.</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 18:36:29 +0000</div>
-        </div></div></div><div class="source-group"><h2 class="source-title">⚙️ Ars Technica</h2><div class="source-items">
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/information-technology/2026/05/mozilla-says-271-vulnerabilities-found-by-mythos-have-almost-no-false-positives/" target="_blank" rel="noopener">Mozilla says 271 vulnerabilities found by Mythos have &quot;almost no false positives&quot;</a></h3>
-            <p class="news-summary">The developer of Firefox says it has "completely bought in" on AI-assisted bug discovery.</p>
-            <div class="news-meta">📅 Thu, 07 May 2026 19:18:16 +0000</div>
+            <h3 class="news-title"><a href="https://www.technologyreview.com/2026/05/07/1136956/the-download-ivf-tech-balcony-solar/" target="_blank" rel="noopener">The Download: the tech reshaping IVF and the rise of balcony solar</a></h3>
+            <p class="news-summary">This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. What’s next for IVF IVF has brought millions of babies into the world over the last four decades. But the process can still be slow, painful, and expe</p>
+            <div class="news-meta">📅 Thu, 07 May 2026 12:10:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/information-technology/2026/05/ars-asks-share-your-shell-and-show-us-your-tricked-out-terminals/" target="_blank" rel="noopener">Ars Asks: Share your shell and show us your tricked-out terminals!</a></h3>
-            <p class="news-summary">A celebration of the tweaks and customizations that make life easier at the CLI.</p>
-            <div class="news-meta">📅 Wed, 06 May 2026 13:32:47 +0000</div>
+            <h3 class="news-title"><a href="https://www.technologyreview.com/2026/05/07/1136933/balcony-solar-boom/" target="_blank" rel="noopener">The balcony solar boom is coming to the US</a></h3>
+            <p class="news-summary">Dozens of US states are considering legislation to allow people to install plug-in solar systems, often called balcony solar. These small arrays require little to no setup and could help cut emissions and power bills. Balcony solar is already popular in Europe, and proponents say that the systems co</p>
+            <div class="news-meta">📅 Thu, 07 May 2026 10:00:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/05/widely-used-daemon-tools-disk-app-backdoored-in-monthlong-supply-chain-attack/" target="_blank" rel="noopener">Widely used Daemon Tools disk app backdoored in monthlong supply-chain attack</a></h3>
-            <p class="news-summary">Daemon Tools users: It's time to check your machines for stealthy infections, stat.</p>
-            <div class="news-meta">📅 Tue, 05 May 2026 19:46:15 +0000</div>
+            <h3 class="news-title"><a href="https://www.technologyreview.com/2026/05/07/1136946/whats-next-for-ivf-ai-robot-pgt-gene-editing/" target="_blank" rel="noopener">What’s next for IVF</a></h3>
+            <p class="news-summary">MIT Technology Review’s What’s Next series looks across industries, trends, and technologies to give you a first look at the future. You can read the rest of them here. Forty-eight years ago this July, Louise Joy Brown became the world’s first person born with the help of in vitro fertilization. Mil</p>
+            <div class="news-meta">📅 Thu, 07 May 2026 09:04:50 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/information-technology/2026/05/why-reddit-blocked-my-daily-visit-to-its-mobile-website/" target="_blank" rel="noopener">Why Reddit blocked my daily visit to its mobile website</a></h3>
-            <p class="news-summary">Reddit REALLY wants you to use its app.</p>
-            <div class="news-meta">📅 Tue, 05 May 2026 11:20:08 +0000</div>
+            <h3 class="news-title"><a href="https://www.technologyreview.com/2026/05/06/1136917/the-download-seafloor-science-military-ai-chatbots/" target="_blank" rel="noopener">The Download: seafloor science and military chatbots</a></h3>
+            <p class="news-summary">This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Inexpensive seafloor-hopping submersibles could stoke deep-sea science—and mining Last week, two oblong neon submersibles started to descend nearly 6,</p>
+            <div class="news-meta">📅 Wed, 06 May 2026 12:10:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/tech-policy/2026/05/gamestop-offers-56-billion-for-ebay-struggles-to-explain-how-itll-pay-for-it/" target="_blank" rel="noopener">GameStop offers $56 billion for eBay, struggles to explain how it&#39;ll pay for it</a></h3>
-            <p class="news-summary">Amid falling revenue and store closures, GameStop wants to buy the much larger eBay.</p>
-            <div class="news-meta">📅 Mon, 04 May 2026 17:57:46 +0000</div>
+            <h3 class="news-title"><a href="https://www.technologyreview.com/2026/05/05/1136848/the-download-musk-openai-altman-trial-ai-democracy/" target="_blank" rel="noopener">The Download: inside the Musk v. Altman trial, and AI for democracy</a></h3>
+            <p class="news-summary">This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Week one of the Musk v. Altman trial: what it was like in the room Two of the most powerful figures in AI—Sam Altman and Elon Musk—are in the middle o</p>
+            <div class="news-meta">📅 Tue, 05 May 2026 12:10:00 +0000</div>
+        </div></div></div><div class="source-group"><h2 class="source-title">📢 Google AI Blog</h2><div class="source-items">
+        <div class="news-item">
+            <h3 class="news-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/" target="_blank" rel="noopener">Reduce friction and latency for long-running jobs with Webhooks in Gemini API</a></h3>
+            <p class="news-summary">Gemini API</p>
+            <div class="news-meta">📅 Mon, 04 May 2026 15:30:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/" target="_blank" rel="noopener">Ubuntu infrastructure has been down for more than a day</a></h3>
-            <p class="news-summary">The outage has hampered communication concerning a critical vulnerability that gives root.</p>
-            <div class="news-meta">📅 Fri, 01 May 2026 19:12:26 +0000</div>
+            <h3 class="news-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/" target="_blank" rel="noopener">Join the new AI Agents Vibe Coding Course from Google and Kaggle</a></h3>
+            <p class="news-summary">A web next to a laptop</p>
+            <div class="news-meta">📅 Mon, 27 Apr 2026 13:00:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/04/as-the-most-severe-linux-threat-in-years-surfaces-the-world-scrambles/" target="_blank" rel="noopener">The most severe Linux threat to surface in years catches the world flat-footed</a></h3>
-            <p class="news-summary">CopyFail threatens multi-tenant servers, CI/CD work flows, Kubernetes containers, and more.</p>
-            <div class="news-meta">📅 Thu, 30 Apr 2026 20:20:48 +0000</div>
+            <h3 class="news-title"><a href="https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/" target="_blank" rel="noopener">8 Gemini tips for organizing your space (and life)</a></h3>
+            <p class="news-summary">Black screen with illustrations including a laptop with document and email icons streaming out, a smiling person holding a phone and looking at a checklist, and a user activating Gemini Live</p>
+            <div class="news-meta">📅 Fri, 24 Apr 2026 19:00:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/information-technology/2026/04/why-a-recent-supply-chain-attack-singled-out-security-firms-checkmarx-and-bitwarden/" target="_blank" rel="noopener">Why a recent supply-chain attack singled out security firms Checkmarx and Bitwarden</a></h3>
-            <p class="news-summary">Security firms find themselves especially exposed.</p>
-            <div class="news-meta">📅 Wed, 29 Apr 2026 11:00:24 +0000</div>
+            <h3 class="news-title"><a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/tpus-8t-8i-cloud-next/" target="_blank" rel="noopener">We&#39;re launching two specialized TPUs for the agentic era.</a></h3>
+            <p class="news-summary">The eighth generation of Google’s TPU includes two specialized chips that will power the future of AI.</p>
+            <div class="news-meta">📅 Wed, 22 Apr 2026 12:00:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/04/open-source-package-with-1-million-monthly-downloads-stole-user-credentials/" target="_blank" rel="noopener">Open source package with 1 million monthly downloads stole user credentials</a></h3>
-            <p class="news-summary">If you're one of millions using element-data, it's time to check for compromise.</p>
-            <div class="news-meta">📅 Mon, 27 Apr 2026 21:04:03 +0000</div>
+            <h3 class="news-title"><a href="https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/" target="_blank" rel="noopener">New ways to create personalized images in the Gemini app</a></h3>
+            <p class="news-summary">Example images made with Personal Intelligence</p>
+            <div class="news-meta">📅 Thu, 16 Apr 2026 16:00:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/04/why-are-top-university-websites-serving-porn-it-comes-down-to-shoddy-housekeeping/" target="_blank" rel="noopener">Why are top university websites serving porn? It comes down to shoddy housekeeping.</a></h3>
-            <p class="news-summary">Hundreds of subdomains from dozens of universities have been hijacked by scammers.</p>
-            <div class="news-meta">📅 Fri, 24 Apr 2026 19:00:39 +0000</div>
+            <h3 class="news-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/" target="_blank" rel="noopener">Gemini 3.1 Flash TTS: the next generation of expressive AI speech</a></h3>
+            <p class="news-summary">Gemini logo next to the text "3.1 Flash TTS", all over colored dots</p>
+            <div class="news-meta">📅 Wed, 15 Apr 2026 15:00:00 +0000</div>
         </div>
         <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/04/now-even-ransomware-is-using-post-quantum-cryptography/" target="_blank" rel="noopener">In a first, a ransomware family is confirmed to be quantum-safe</a></h3>
-            <p class="news-summary">Technically speaking, there's no practical benefit to use PQC. So why is it being used?</p>
-            <div class="news-meta">📅 Thu, 23 Apr 2026 20:41:23 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/04/microsoft-issues-emergency-update-for-macos-and-linux-asp-net-threat/" target="_blank" rel="noopener">Microsoft issues emergency update for macOS and Linux ASP.NET threat</a></h3>
-            <p class="news-summary">When authentication fails, things can go very, very wrong.</p>
-            <div class="news-meta">📅 Wed, 22 Apr 2026 19:32:56 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/04/contrary-to-popular-superstition-aes-128-is-just-fine-in-a-post-quantum-world/" target="_blank" rel="noopener">Contrary to popular superstition, AES 128 is just fine in a post-quantum world</a></h3>
-            <p class="news-summary">A stubborn misconception is hampering the already hard work of quantum readiness.</p>
-            <div class="news-meta">📅 Tue, 21 Apr 2026 12:35:20 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/04/russia-friendly-exchange-says-western-special-service-behind-15-million-cyberattack/" target="_blank" rel="noopener">US-sanctioned currency exchange says $15 million heist done by &quot;unfriendly states&quot;</a></h3>
-            <p class="news-summary">Grinex says needed hacking resources "available exclusively to... unfriendly states."</p>
-            <div class="news-meta">📅 Fri, 17 Apr 2026 21:28:35 +0000</div>
-        </div>
-        <div class="news-item">
-            <h3 class="news-title"><a href="https://arstechnica.com/security/2026/04/while-some-big-tech-players-accelerate-pqc-readiness-others-stay-the-course/" target="_blank" rel="noopener">Recent advances push Big Tech closer to the Q-Day danger zone</a></h3>
-            <p class="news-summary">Here's which players are winning the race to transition to post-quantum crypto.</p>
-            <div class="news-meta">📅 Fri, 17 Apr 2026 11:00:50 +0000</div>
+            <h3 class="news-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/" target="_blank" rel="noopener">New ways to balance cost and reliability in the Gemini API</a></h3>
+            <p class="news-summary">Gemini API Dials</p>
+            <div class="news-meta">📅 Thu, 02 Apr 2026 16:00:00 +0000</div>
         </div></div></div>
         </main>
         <footer>
