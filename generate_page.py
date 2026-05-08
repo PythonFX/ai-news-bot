@@ -5,33 +5,109 @@ AI News Page Generator - 生成静态 HTML 页面
 
 import json
 import os
+import re
 from datetime import datetime
+from html.parser import HTMLParser
+from pathlib import Path
+
 from zoneinfo import ZoneInfo
 
 # 配置
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(SCRIPT_DIR, "data")
-OUTPUT_HTML = os.path.join(SCRIPT_DIR, "index.html")
+SCRIPT_DIR = Path(__file__).parent.resolve()
+DATA_DIR = SCRIPT_DIR / "data"
+OUTPUT_HTML = SCRIPT_DIR / "index.html"
 TZ = ZoneInfo("Asia/Shanghai")
 
 
-def load_today_news():
-    """加载今天的新闻数据"""
-    today = datetime.now(TZ).strftime("%Y-%m-%d")
-    data_file = os.path.join(DATA_DIR, f"news_{today}.json")
+def load_news_by_date(date_str, data_dir=None):
+    """根据日期加载新闻数据"""
+    if data_dir is None:
+        data_dir = DATA_DIR
+    data_file = data_dir / f"news_{date_str}.json"
 
-    if not os.path.exists(data_file):
+    if not data_file.exists():
         # 尝试找最新的数据文件
-        files = sorted([f for f in os.listdir(DATA_DIR) if f.startswith("news_") and f.endswith(".json")])
+        if not data_dir.exists():
+            return None, None
+        files = sorted(data_dir.glob("news_*.json"))
         if files:
-            data_file = os.path.join(DATA_DIR, files[-1])
+            data_file = files[-1]
         else:
-            print(f"⚠ 未找到数据文件: {data_file}")
             return None, None
 
     with open(data_file, "r", encoding="utf-8") as f:
         data = json.load(f)
     return data["news"], data["date"]
+
+
+def get_available_dates(data_dir=None):
+    """获取所有有数据的日期列表"""
+    if data_dir is None:
+        data_dir = DATA_DIR
+    if not data_dir.exists():
+        return []
+    files = sorted(data_dir.glob("news_*.json"))
+    return [f.stem.replace("news_", "") for f in files]
+
+
+def load_today_news():
+    """加载今天的新闻数据（兼容旧接口）"""
+    today = datetime.now(TZ).strftime("%Y-%m-%d")
+    news, date = load_news_by_date(today, DATA_DIR)
+    return news, date
+
+
+ALLOWED_TAGS = {'b', 'strong', 'em', 'i', 'a'}
+
+
+class SummaryHTMLParser(HTMLParser):
+    """用 HTMLParser 正确处理摘要 HTML"""
+
+    def __init__(self):
+        super().__init__()
+        self.result = []
+
+    def handle_starttag(self, tag, attrs):
+        tag = tag.lower()
+        if tag == 'a':
+            attrs_dict = dict(attrs)
+            href = attrs_dict.get('href', '#')
+            self.result.append(f'<a href="{href}" target="_blank" rel="noopener">')
+        elif tag in ALLOWED_TAGS:
+            self.result.append(f'<{tag}>')
+
+    def handle_endtag(self, tag):
+        tag = tag.lower()
+        if tag in ALLOWED_TAGS:
+            self.result.append(f'</{tag}>')
+
+    def handle_data(self, data):
+        self.result.append(data)
+
+    def get_result(self):
+        return ''.join(self.result)
+
+
+def sanitize_html(html_text):
+    """清理 HTML：保留粗体/斜体/链接，去掉其他标签但保留文本"""
+    if not html_text:
+        return ""
+
+    # 去掉危险标签和脚本
+    html_text = re.sub(r'<script[^>]*>.*?</script>', '', html_text, flags=re.DOTALL | re.IGNORECASE)
+    html_text = re.sub(r'<style[^>]*>.*?</style>', '', html_text, flags=re.DOTALL | re.IGNORECASE)
+    html_text = re.sub(r'on\w+\s*=\s*["\'][^"\']*["\']', '', html_text, flags=re.IGNORECASE)
+
+    parser = SummaryHTMLParser()
+    try:
+        parser.feed(html_text)
+    except:
+        return html_text
+
+    result = parser.get_result()
+    # 清理连续空白
+    result = re.sub(r'[ \t]+', ' ', result)
+    return result.strip()
 
 
 def escape_html(text):
@@ -46,7 +122,29 @@ def escape_html(text):
             .replace("'", "&#39;"))
 
 
-def generate_html(news_list, news_date):
+def _build_date_picker(available_dates, current_date):
+    """构建日期选择器 HTML"""
+    if not available_dates:
+        return ""
+
+    dates_json = json.dumps(available_dates)
+    options = []
+    for d in sorted(available_dates):
+        selected = 'selected' if d == current_date else ''
+        label = d
+        options.append(f'<option value="{d}" {selected}>{label}</option>')
+
+    return f'''
+    <div class="date-picker">
+        <label for="date-select">📅 选择日期：</label>
+        <select id="date-select" onchange="window.location.href='/date/' + this.value">
+            {''.join(options)}
+        </select>
+    </div>
+    '''
+
+
+def generate_html(news_list, news_date, available_dates=None):
     """生成 HTML 页面"""
 
     # 按来源分组
@@ -56,6 +154,11 @@ def generate_html(news_list, news_date):
         if src not in sources:
             sources[src] = []
         sources[src].append(n)
+
+    # 日期选择器
+    if available_dates is None:
+        available_dates = [news_date] if news_date else []
+    date_picker_html = _build_date_picker(available_dates, news_date)
 
     news_html = ""
     for source, items in sources.items():
@@ -73,7 +176,8 @@ def generate_html(news_list, news_date):
         for n in items:
             title = escape_html(n.get("title", ""))
             url = escape_html(n.get("url", "#"))
-            summary = escape_html(n.get("summary", ""))
+            summary_raw = n.get("summary", "")
+            summary_html = sanitize_html(summary_raw)
             points = n.get("points", 0)
             comments = n.get("comments", 0)
             date = n.get("date", "")
@@ -91,7 +195,7 @@ def generate_html(news_list, news_date):
             news_html += f'''
         <div class="news-item">
             <h3 class="news-title"><a href="{url}" target="_blank" rel="noopener">{title}</a></h3>
-            {f'<p class="news-summary">{summary}...</p>' if summary else ''}
+            {f'<p class="news-summary">{summary_html}</p>' if summary_html else ''}
             {f'<div class="news-meta">{meta_str}</div>' if meta_str else ''}
         </div>'''
 
@@ -125,6 +229,19 @@ def generate_html(news_list, news_date):
         .stat {{ text-align: center; }}
         .stat-value {{ font-size: 1.8em; font-weight: 700; color: #667eea; }}
         .stat-label {{ font-size: 0.85em; color: #666; }}
+        .date-picker {{ margin-top: 20px; }}
+        .date-picker label {{ color: #888; margin-right: 8px; }}
+        .date-picker select {{
+            background: #12121a;
+            color: #e0e0e0;
+            border: 1px solid #2a2a3a;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 1em;
+            cursor: pointer;
+            outline: none;
+        }}
+        .date-picker select:hover {{ border-color: #667eea; }}
         .source-group {{ margin-bottom: 40px; }}
         .source-title {{ font-size: 1.3em; color: #667eea; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #2a2a3a; }}
         .source-items {{ display: flex; flex-direction: column; gap: 16px; }}
@@ -185,6 +302,7 @@ def generate_html(news_list, news_date):
                     <div class="stat-label">日期</div>
                 </div>
             </div>
+            {date_picker_html}
         </header>
         <main>
             {news_html}
@@ -214,7 +332,7 @@ def main():
         f.write(html)
 
     print(f"✅ 已生成 {OUTPUT_HTML}")
-    print(f"   📰 {len(news_list)} 条新闻 | {len(set(n.get('source','') for n in news_list))} 个来源")
+    print(f"   📰 {len(news_list)} 条新闻 | {len(set(n.get('source', '') for n in news_list))} 个来源")
 
 
 if __name__ == "__main__":
